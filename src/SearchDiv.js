@@ -16,7 +16,7 @@ const SearchDiv = ({ currentSearch }) => {
 	return (
 		<div
 			className="searchDiv"
-			style={{ display: "flex", padding: "3% 3%", backgroundColor: "blue" }}
+			style={{ display: "flex", padding: "3% 3%", backgroundColor: "#F3F3F3" }}
 		>
 			<form onSubmit={handelSubmit}>
 				<input
