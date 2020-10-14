@@ -29,6 +29,9 @@ code {
 	padding-left: 5px;
 	padding-top: 2px;
 }
-.colorSwitch {
-	background-color: black;
+
+
+.darkModeClass{
+	color:white;
+	background-color:rgba(7, 3, 19, 0.746);
 }
