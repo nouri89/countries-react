@@ -1,43 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 
-const SearchDiv = ({ currentSearch }) => {
-	const [searchInput, setSearchInput] = useState("");
 
-	function handelSearchInput(event) {
-		setSearchInput(event.target.value);
-		console.log(event.target.value);
-	}
-	function handelSubmit(event) {
-		event.preventDefault();
 
-		console.log("got here");
-		currentSearch(searchInput);
-	}
+const SearchDiv = ({
+	handelRegionSearchValue,
+	searchValue,
+	handelRegionSearch,
+}) => {
 	return (
 		<div
 			className="searchDiv"
 			style={{ display: "flex", padding: "3% 3%", backgroundColor: "#F3F3F3" }}
 		>
-			<form onSubmit={handelSubmit}>
-				<input
-					type="search"
-					placeholder="Search for Country..."
-					style={{ marginLeft: "4%" }}
-					value={searchInput}
-					onChange={handelSearchInput}
-					id="country"
-				></input>
-			</form>
-			<form style={{ paddingLeft: "70%" }}>
-				<select id="" name="">
+			<input
+				className="searchInput"
+				type="text"
+				placeholder="&#61442; Search for Country..."
+				style={{ marginLeft: "4%" }}
+				value={searchValue} 
+				onChange={handelRegionSearchValue}
+				id="country"
+			></input>
+
+			<div style={{ paddingLeft: "70%" }}>
+				<select id="region" name="regions" onChange={handelRegionSearch}>
 					<option value="">Filter by Region</option>
-					<option value="">Africa</option>
-					<option value="">America</option>
-					<option value="">Asia</option>
-					<option value="">Europe</option>
-					<option value="">Ociana</option>
+					<option value="Africa">Africa</option>
+					<option value="Americas">Americas</option>
+					<option value="Asia">Asia</option>
+					<option value="Europe">Europe</option>
+					<option value="Oceania">Oceania</option>
 				</select>
-			</form>
+			</div>
 		</div>
 	);
 };
