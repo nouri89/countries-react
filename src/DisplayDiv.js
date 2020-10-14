@@ -3,27 +3,46 @@ import countriesAll from "./countriesAll.json";
 import CountryCard from "./CountryCard";
 import SearchDiv from "./SearchDiv";
 
+
 const DisplayDiv = () => {
 	const data = countriesAll;
-	const [currentCountries, setCurrentCountries] = useState(data);
-	const search = (searchVal) => {
-		console.log(searchVal + "searchVal");
-		console.log(currentCountries);
+	
+	const [searchValue, setSearchValue] = useState("");
+	const [regionSearch, setRegionSearch] = useState("");
 
-		const searchResult = currentCountries.filter(
-			(country) =>
-				country.name.toLowerCase() === searchVal.toLowerCase() ||
-				country.capital.toLowerCase() === searchVal.toLowerCase()
+	console.log(searchValue);
+	function handelRegionSearchValue(event) {
+		setSearchValue(event.target.value);
+	}
+
+	function handelRegionSearch(event) {
+		setRegionSearch(event.target.value);
+	}
+
+	let searchResult = data.filter((country) => {
+		return (
+			!searchValue ||
+			country.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+			country.capital.toLowerCase().includes(searchValue.toLowerCase())
 		);
-		setCurrentCountries(searchResult);
-		console.log(" the search word is" + searchResult.length);
-	};
+	});
+
+	let searchRegionResult = searchResult.filter((country) => {
+		return (
+			!regionSearch ||
+			country.region.toLowerCase().includes(regionSearch.toLowerCase())
+		);
+	});
 
 	return (
 		<div>
-			<SearchDiv currentSearch={search} />
+			<SearchDiv
+				handelRegionSearchValue={handelRegionSearchValue}
+				searchValue={searchValue}
+				handelRegionSearch={handelRegionSearch}
+			/>
 			<div className="row" style={{ backgroundColor: "#F3F3F3" }}>
-				{currentCountries.map((country, index) => (
+				{searchRegionResult.map((country, index) => (
 					<CountryCard
 						key={index}
 						flag={country.flag}
