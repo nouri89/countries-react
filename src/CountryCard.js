@@ -1,26 +1,6 @@
 import React from "react";
 
-//	className="col-md-3 sm-6 border"
 
-/*
-<div>
-						<h5>Population :</h5> {props.population}
-					</div>
-					<div>
-						<h5>Region :</h5> {props.region}
-					</div>
-					<div>
-						<h>Capital :</h> {props.capital}
-					</div>
-				</div>
-*/
-/*	style={{
-				backgroundColor: "green",
-				width: "25%",
-				display: "flex",
-				flexWrap: "wrap",
-				flexDirection: "row",
-			}} //"#F3F3F3" }}*/
 
 const CountryCard = (props) => {
 	const countryPopulation = props.population
@@ -33,7 +13,8 @@ const CountryCard = (props) => {
 			style={{
 				backgroundColor: "white",
 				margin: "2%",
-			marginLeft: "6%",
+				marginLeft: "6%",
+				color: "black"
 			}}
 		>
 			<img
@@ -64,22 +45,3 @@ const CountryCard = (props) => {
 
 export default CountryCard;
 
-/*
-return (
-		<div
-            className="col-md-3 sm-6 border"
-            style={{ backgroundColor: "green" ,width:"100%"}} //"#F3F3F3" }}
-        >
-                <div className="card">
-			        <div className="card-header">
-                        <img src={props.flag} style={{width:"100%"}} alt={`flag of ${props.name}`}></img>
-                   </div>
-			       <div className="card-body">
-                        <h2>{props.name} </h2>
-                        <div>Population : {props.population}</div>
-                        <div>Region : {props.region}</div>
-                        <div>Capital : {props.capital}</div>
-                  </div>
-            </div>  
-        </div>
-*/
