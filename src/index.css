@@ -28,9 +28,8 @@ code {
 }
 .backButtonDiv {
 	width: 20%;
-	padding: 3% 10% 1% 17%;
-
-	
+	margin: 3% 80% 1% 17%;
+	border:2px solid black;
 }
 .container {
 	display: flex;
