@@ -8,7 +8,7 @@ const Header = () => {
 	}
 	return (
 		<div
-			className={darkMode?"darkModeClass":""}
+			className={darkMode?"darkMode":""}
 			style={{ width: "100%", padding: "2% 0  2% 10%", display: "flex" }}
 		>
 			<h3 style={{ fontWeight: "bolder" }}>Where in the world?</h3>
