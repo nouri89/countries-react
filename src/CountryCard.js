@@ -1,8 +1,12 @@
 import React from "react";
 
-
-
-const CountryCard = (props) => {
+const CountryCard = (props ) => {
+	
+	function handleCountryClick() {
+		props.handleCountryClick(props.name);
+	 
+ }
+	
 	const countryPopulation = props.population
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -14,8 +18,10 @@ const CountryCard = (props) => {
 				backgroundColor: "white",
 				margin: "2%",
 				marginLeft: "6%",
-				color: "black"
+				color: "black",
+				cursor: "pointer",
 			}}
+			onClick={handleCountryClick}
 		>
 			<img
 				src={props.flag}
@@ -27,21 +33,21 @@ const CountryCard = (props) => {
 				}}
 				alt={`flag of ${props.name}`}
 			></img>
-			<div
-				className="card-body"
-				style={{  padding: " 0 0" }}
-			>
-				<h5 style={{ padding: "10%", fontWeight:"bold" }}>
-					{props.name}
-				</h5>
-				<div>Population : {countryPopulation}</div>
-				<div>Region : {props.region}</div>
+			<div className="card-body" style={{ padding: " 0 0" }}>
+				<h4 style={{ paddingTop: "8%", fontWeight: "bold" }}>{props.name}</h4>
+				<div>
+					<span>Population :</span> {countryPopulation}
+				</div>
+				<div>
+					<span>Region :</span> {props.region}
+				</div>
 
-				<div>Capital : {props.capital}</div>
+				<div>
+					<span>Capital :</span> {props.capital}
+				</div>
 			</div>
 		</div>
 	);
 };
 
 export default CountryCard;
-
