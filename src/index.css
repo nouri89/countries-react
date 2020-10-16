@@ -4,20 +4,12 @@ body {
 		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
-}
-.mainLoginInput {
-	height: 30px;
-	padding: 0px;
-	font-size: 30px;
-	margin: 5px 0;
 }
 
 .searchInput::-webkit-input-placeholder {
@@ -30,8 +22,41 @@ code {
 	padding-top: 2px;
 }
 
-
-.darkModeClass{
-	color:white;
-	background-color:rgba(7, 3, 19, 0.746);
+.darkMode {
+	color: white;
+	background-color: rgba(7, 3, 19, 0.746);
 }
+.backButtonDiv {
+	width: 10%;
+	margin: 3% 70% 1% 17%;
+}
+.container {
+	display: flex;
+}
+.countryImage {
+	padding-right: 1%;
+	width: 100%;
+}
+.countryInfo {
+	padding-right: 40%;
+}
+ul {
+	list-style: none;
+
+	width: 200%;
+}
+.borderDiv {
+	width: 350%;
+}
+.borderDiv button {
+	margin: 1%;
+}
+span {
+	font-weight: bold;
+}
+.searchDiv{
+background-color: #F3F3F3;
+display:flex;
+padding: 3% 3% ;
+}
+
