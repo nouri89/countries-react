@@ -27,8 +27,10 @@ code {
 	background-color: rgba(7, 3, 19, 0.746);
 }
 .backButtonDiv {
-	width: 10%;
-	margin: 3% 90% 1% 17%;
+	width: 20%;
+	padding: 3% 10% 1% 17%;
+
+	
 }
 .container {
 	display: flex;
@@ -54,9 +56,8 @@ ul {
 span {
 	font-weight: bold;
 }
-.searchDiv{
-background-color: #F3F3F3;
-display:flex;
-padding: 3% 3% ;
+.searchDiv {
+	background-color: #f3f3f3;
+	display: flex;
+	padding: 3% 3%;
 }
-
