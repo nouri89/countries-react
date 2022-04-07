@@ -34,7 +34,7 @@ const CountryCard = (props ) => {
 					borderRadius: "5px",
 					border: "0.5px solid gray",
 				}}
-				alt={`flag of ${props.name.common}`}
+				alt={`flag of ${props.name}`}
 			></img>
 			<div className="card-body" style={{ padding: " 0 0" }}>
 				<h4 style={{ paddingTop: "8%", fontWeight: "bold" }}>{props.name.common}</h4>
