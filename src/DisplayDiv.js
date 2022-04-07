@@ -1,20 +1,23 @@
 import React, { useState } from "react";
-import countriesAll from "./countriesAll.json";
+import data from "./allCountries.json";
 import CountryCard from "./CountryCard";
 import SearchDiv from "./SearchDiv";
 import SingleCountryDisplay from "./SingleCountryDisplay";
 
 const DisplayDiv = () => {
-	const data = countriesAll;
+	
 	const [singleCountryMode, setSingleCountryMode] = useState(false);
 	const [searchValue, setSearchValue] = useState("");
 	const [regionSearch, setRegionSearch] = useState("");
 	const [countries, setCountries] = useState([]);
-	console.log(singleCountryMode);
+	console.log(countries);
 
 	function handleCountryClick(countryName) {
+		
+		console.log(countryName)
 		setSingleCountryMode(true);
-		setCountries(countriesAll.find((item) => item.name === countryName));
+		setCountries(data.find((item) => item.name.common === countryName));
+		
 	}
 
 	function handelRegionSearchValue(event) {
@@ -29,15 +32,21 @@ const DisplayDiv = () => {
 	}
 
 	function handleSingleCountryClick(countryName) {
-		setSingleCountryMode(true);
-		setCountries(countriesAll.find((item) => item.name === countryName));
+		console.log("clicked here 3")
+		console.log(countryName)
+		 setCountries(data.find((item) => item.name === countryName));
+		
+		 setSingleCountryMode(true);
+		
+		 console.log(countries);
 	}
 
 	let searchResult = data.filter((country) => {
 		return (
 			!searchValue ||
-			country.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-			country.capital.toLowerCase().includes(searchValue.toLowerCase())
+			country.name.common.toLowerCase().includes(searchValue.toLowerCase()) 
+			// ||
+			// country.capital.includes(searchValue.toLowerCase())
 		);
 	});
 
@@ -59,8 +68,8 @@ const DisplayDiv = () => {
 					{searchRegionResult.map((country, index) => (
 						<CountryCard
 							key={index}
-							flag={country.flag}
-							name={country.name}
+							flag={country.flags.svg}
+							name={country.name.common}
 							population={country.population}
 							region={country.region}
 							capital={country.capital}
@@ -73,10 +82,11 @@ const DisplayDiv = () => {
 	} else {
 		return (
 			<div>
-				<SingleCountryDisplay
+				 <SingleCountryDisplay
+				
 					key={countries.id}
-					flag={countries.flag}
-					name={countries.name}
+					flag={countries.flags.svg}
+					name={countries.name.common}
 					population={countries.population}
 					region={countries.region}
 					capital={countries.capital}
@@ -87,7 +97,7 @@ const DisplayDiv = () => {
 					borders={countries.borders}
 					handleBackButtonClick={handleBackButtonClick}
 					handleSingleCountryClick={handleSingleCountryClick}
-				/>
+				/> 
 			</div>
 		);
 	}
