@@ -1,31 +1,33 @@
 import React from "react";
-import countriesAll from "./countriesAll.json";
+import data from "./allCountries.json";
 
 const SingleCountryDisplay = (props) => {
-	const data = countriesAll;
+	
 	const bordersCountries = [];
 	props.borders.forEach(border=>bordersCountries.push(data.find(
-		(element) => element.alpha3Code === border
+		(element) => element.cioc === border
 	)));
-
+    console.log(bordersCountries)
 	function handleSingleCountryClick(event) {
+
+		
 			
 				props.handleSingleCountryClick(event.target.name);
 		
 	}
 	
-	const borderName = bordersCountries.map(element =>  element.name );
-	console.log(borderName);
+	 const borderName = bordersCountries.map(element =>  element.name.common );
+	 console.log(borderName);
 
-	const countryPopulation = props.population
-		.toString()
+	 const countryPopulation = props.population
+	 	.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	return (
 		<div>
-			<div className="backButtonDiv">
+			 <div className="backButtonDiv">
 				<button
 					type="button"
-					class="btn btn-info"
+					className="btn btn-info"
 					onClick={props.handleBackButtonClick}
 				>
 					Back
@@ -51,7 +53,7 @@ const SingleCountryDisplay = (props) => {
 						{props.name}
 					</h3>
 					<ul>
-						<li>
+						{/* <li>
 							<span>Native Name : </span>
 							{props.nativeName}
 						</li>
@@ -72,21 +74,22 @@ const SingleCountryDisplay = (props) => {
 						</li>
 						<li>
 							<span>Currency : </span>
-							{props.currencies[0].name}
-						</li>
+							{props.currencies.name}
+						</li> 
 						<li>
 							<span>Languages : </span>
 							{props.languages.map((lang) => lang.name).join(" , ")}
-						</li>
+						</li>*/}
 					</ul>
 					<div className="borderDiv">
 						<h5>
 							<span>Border countries : </span>
-							{borderName.map((element) => (
+							{borderName.map((element,index) => (
 								<button
+								key={index}
 									onClick={handleSingleCountryClick}
 									type="button"
-									class="btn btn-info"
+									className="btn btn-info"
 									name={element}
 								>
 									{element}
@@ -95,7 +98,7 @@ const SingleCountryDisplay = (props) => {
 						</h5>
 					</div>
 				</div>
-			</div>
+			</div> 
 		</div>
 	);
 };
