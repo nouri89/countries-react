@@ -1,8 +1,10 @@
 import React from "react";
 
 const CountryCard = (props ) => {
+//	console.log(props.flag)
 	
 	function handleCountryClick() {
+		console.log(props.name)
 		props.handleCountryClick(props.name);
 	 
  }
@@ -24,17 +26,18 @@ const CountryCard = (props ) => {
 			onClick={handleCountryClick}
 		>
 			<img
-				src={props.flag}
+			
+				 src={props.flag}
 				style={{
 					maxWidth: "100%",
 					maxHeight: "100%",
 					borderRadius: "5px",
 					border: "0.5px solid gray",
 				}}
-				alt={`flag of ${props.name}`}
+				alt={`flag of ${props.name.common}`}
 			></img>
 			<div className="card-body" style={{ padding: " 0 0" }}>
-				<h4 style={{ paddingTop: "8%", fontWeight: "bold" }}>{props.name}</h4>
+				<h4 style={{ paddingTop: "8%", fontWeight: "bold" }}>{props.name.common}</h4>
 				<div>
 					<span>Population :</span> {countryPopulation}
 				</div>
